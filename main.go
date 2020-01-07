@@ -56,7 +56,7 @@ func div(a, b int) int int {
 }*/
 
 func main() {
-	port := "12345"
+	port := "80"
 	if v := os.Getenv("PORT"); len(v) > 0 {
 		port = v
 	}
