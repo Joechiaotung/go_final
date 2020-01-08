@@ -30,3 +30,7 @@ const (
 	StoneWhite
 	StoneBlack
 )
+
+type Board_c struct {
+	Board [][]Stone
+}

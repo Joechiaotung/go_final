@@ -15,6 +15,7 @@ const useEmbeddedImages = true
 
 // Image of the board
 var BoardImg *image.RGBA
+var BoardImgs [1000]*image.RGBA
 
 // Image of the wall block
 var WallImg *image.RGBA

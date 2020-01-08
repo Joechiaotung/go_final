@@ -6,9 +6,9 @@ import (
 	// "image"
 	// "image/draw"
 	// "math"
+	"fmt"
 	"math/rand"
 	"time"
-	"fmt"
 )
 
 // LoopDelay is the delay between the iterations of the main loop of the game engine, in milliseconds.
@@ -39,7 +39,6 @@ var dt float64
 
 // simulate implements the game cycle
 func simulate() {
-
 
 	for {
 		// Check if we have to start a new game
@@ -85,30 +84,30 @@ func simulate() {
 func handleClick(c model.Click) {
 
 	col, row := c.X/model.BlockSize, c.Y/model.BlockSize
-
+	board_id := c.Board_id
+	fmt.Println("bid: ", c.Board_id)
 	// AI
 	model.PlayerTurn = true
 	if model.PlayerTurn == true {
-		if model.Board[row][col] != model.StoneWhite &&  model.Board[row][col] != model.StoneBlack{
-			model.Board[row][col] = model.StoneWhite
+		if model.Boards[board_id].Board[row][col] != model.StoneWhite && model.Boards[board_id].Board[row][col] != model.StoneBlack {
+			model.Boards[board_id].Board[row][col] = model.StoneWhite
 
-			aiMove := NextMove()
+			aiMove := NextMove(board_id)
 			fmt.Println(aiMove)
-			model.Board[aiMove.X][aiMove.Y] = model.StoneBlack
+			model.Boards[board_id].Board[aiMove.X][aiMove.Y] = model.StoneBlack
 
 			model.PlayerTurn = !model.PlayerTurn
 
-			model.DrawColaRow(col, row)
+			model.DrawColaRow_c(col, row, board_id)
 		}
 	} else {
 		// aiMove := NextMove()
 		// fmt.Println(aiMove)
-		// model.Board[aiMove.X][aiMove.Y] = model.StoneBlack
-		// model.Board[row][col] = model.StoneBlack
+		// model.Boards[board_id].Board[aiMove.X][aiMove.Y] = model.StoneBlack
+		// model.Boards[board_id].Board[row][col] = model.StoneBlack
 	}
 
-
-	// model.Board[aiMove.X][aiMove.Y] = model.StoneBlack
+	// model.Boards[board_id].Board[aiMove.X][aiMove.Y] = model.StoneBlack
 
 	// model.PlayerTurn = false
 
@@ -116,7 +115,7 @@ func handleClick(c model.Click) {
 
 // handleWinning handles the winning of game event.
 func handleWinning() {
-	
+
 }
 
 func init() {

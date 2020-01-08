@@ -28,7 +28,6 @@ const play_html = `<html>
 
 <div id="controls">
 	
-	<button id="newGame" onclick="newGame()">New Game</button>
 	
 	<a href="/help" target="_blank">Help</a>
 	
@@ -76,7 +75,7 @@ const play_html = `<html>
 	function refresh() {
 		if (playing && imgLoaded) {
 			imgLoaded = false;
-			img.src = "/img?quality=75&t=" + new Date().getTime();
+			img.src = "/img?quality=75&t=" + new Date().getTime() + "&board_id={{.Board_id}}";
 			setTimeout(refresh, 1000);
 		}
 		else
@@ -102,7 +101,7 @@ const play_html = `<html>
     	}
     	
 		var r = new XMLHttpRequest();
-		r.open("GET", "/clicked?x=" + x + "&y=" + y + "&b=" + e.button + "&t=" + new Date().getTime(), true);
+		r.open("GET", "/clicked?x=" + x + "&y=" + y + "&b=" + e.button + "&t=" + new Date().getTime() + "&board_id=" + {{.Board_id}}, true);
 		r.send(null);
 	}
 	

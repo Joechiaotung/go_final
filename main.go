@@ -64,10 +64,12 @@ func main() {
 	url := fmt.Sprintf("http://localhost:%d/", port)
 
 	fmt.Printf("Opening %s...\n", url)
-	if err := open(url); err != nil {
-		fmt.Println("Auto-open failed:", err)
-		fmt.Printf("Open %s in your browser.\n", url)
-	}
+	/*
+		if err := open(url); err != nil {
+			fmt.Println("Auto-open failed:", err)
+			fmt.Printf("Open %s in your browser.\n", url)
+		}
+	*/
 
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
 }
