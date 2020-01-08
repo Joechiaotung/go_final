@@ -2,7 +2,7 @@ package view
 
 import (
 	"fmt"
-	"github.com/skiptomyliu/gomoku/model"
+	"../model"
 	"html/template"
 	"image"
 	"image/jpeg"
@@ -95,8 +95,8 @@ func clickedHandle(w http.ResponseWriter, r *http.Request) {
 func newGameHandle(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("new game handle")
 	// Use non-blocking send
-	// select {
-	// case model.NewGameCh <- 1:
-	// default:
-	// }
+	select {
+	case model.NewGameCh <- 1:
+	default:
+	}
 }

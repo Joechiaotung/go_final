@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"os/exec"
 	"runtime"
-	"github.com/skiptomyliu/gomoku/ctrl"
-	"github.com/skiptomyliu/gomoku/model"
-	"github.com/skiptomyliu/gomoku/view"
+	"./ctrl"
+	"./model"
+	"./view"
 )
 
 var port int

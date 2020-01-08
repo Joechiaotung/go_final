@@ -115,7 +115,7 @@ func initBoardImg() {
 	}
 }
 
-func DrawColRow(col int, row int) {
+func DrawColaRow(col int, row int) {
 	blackColor := color.RGBA{0, 0, 0, 255}
 	whiteColor := color.RGBA{255, 255, 255, 255}
 	for ri, row := range Board {

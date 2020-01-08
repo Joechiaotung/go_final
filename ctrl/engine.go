@@ -1,8 +1,8 @@
 package ctrl
 
 import (
-	"github.com/skiptomyliu/gomoku/model"
-	"github.com/skiptomyliu/gomoku/view"
+	"../model"
+	"../view"
 	// "image"
 	// "image/draw"
 	// "math"
@@ -89,11 +89,17 @@ func handleClick(c model.Click) {
 	// AI
 	model.PlayerTurn = true
 	if model.PlayerTurn == true {
-		model.Board[row][col] = model.StoneWhite
+		if model.Board[row][col] != model.StoneWhite &&  model.Board[row][col] != model.StoneBlack{
+			model.Board[row][col] = model.StoneWhite
 
-		aiMove := NextMove()
-		fmt.Println(aiMove)
-		model.Board[aiMove.X][aiMove.Y] = model.StoneBlack
+			aiMove := NextMove()
+			fmt.Println(aiMove)
+			model.Board[aiMove.X][aiMove.Y] = model.StoneBlack
+
+			model.PlayerTurn = !model.PlayerTurn
+
+			model.DrawColaRow(col, row)
+		}
 	} else {
 		// aiMove := NextMove()
 		// fmt.Println(aiMove)
@@ -104,10 +110,8 @@ func handleClick(c model.Click) {
 
 	// model.Board[aiMove.X][aiMove.Y] = model.StoneBlack
 
-	model.PlayerTurn = !model.PlayerTurn
 	// model.PlayerTurn = false
 
-	model.DrawColRow(col, row)
 }
 
 // handleWinning handles the winning of game event.
