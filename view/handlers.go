@@ -1,7 +1,7 @@
 package view
 
 import (
-	"../model"
+	"github.com/Joechiaotung/go_final/model"
 	"fmt"
 	"html/template"
 	"image"

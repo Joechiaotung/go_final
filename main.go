@@ -5,9 +5,9 @@ package main
 import (
 	"fmt"
 
-	"./ctrl"
-	"./model"
-	"./view"
+	"github.com/Joechiaotung/go_final/ctrl"
+	"github.com/Joechiaotung/go_final/model"
+	"github.com/Joechiaotung/go_final/view"
 	"flag"
 	"log"
 	"net/http"

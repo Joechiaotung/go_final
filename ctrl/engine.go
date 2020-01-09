@@ -1,8 +1,8 @@
 package ctrl
 
 import (
-	"../model"
-	"../view"
+	"github.com/Joechiaotung/go_final/model"
+	"github.com/Joechiaotung/go_final/view"
 	// "image"
 	// "image/draw"
 	// "math"

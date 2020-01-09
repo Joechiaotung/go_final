@@ -1,7 +1,7 @@
 package ctrl
 
 import (
-	"../model"
+	"github.com/Joechiaotung/go_final/model"
 	"fmt"
 )
 
